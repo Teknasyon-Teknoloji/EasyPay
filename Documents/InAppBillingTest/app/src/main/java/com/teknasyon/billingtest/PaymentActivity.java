@@ -29,9 +29,7 @@ import java.util.ArrayList;
  */
 public class PaymentActivity extends AppCompatActivity implements BillingAutoRenewCallback, BillingCompleteCallback {
     Context context;
-    //keystorepass: teknasyon2016
-    //alias : inapp
-    //keystorefile : billlingtest.jks
+
     SimPayment.PaymentBuilder paymentBuilder;
     TextView btnPremium;
     TextView btnCredit;
@@ -58,7 +56,7 @@ public class PaymentActivity extends AppCompatActivity implements BillingAutoRen
 
                 //subscription requirement
                 paymentBuilder.developerPayload("developerPayload")
-                        .products(productArray)
+                        .products(productArray) // needs your all items before billings
                         .paymentCompleteCallback(PaymentActivity.this) // need to add complete callback for handling when operation is finish.
                         .paymentRenewCallback(PaymentActivity.this) // need to add renew callback for subscription
                         .requestItem() // must to add request item before pay operation
